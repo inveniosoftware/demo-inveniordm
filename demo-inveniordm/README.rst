@@ -14,6 +14,4 @@
 InvenioRDM Demo Instance
 
 Further documentation is available on
-# FIXME: Shall we allow other domains than readthedocs?
-# Therefore a full URL as a variable?
-https://demo-inveniordm.readthedocs.io/
+http://inveniordm.docs.cern.ch
