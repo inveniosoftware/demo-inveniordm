@@ -1,9 +1,6 @@
 [cli]
 flavour = RDM
-project_dir = /Users/ppanero/Workspace/inveniosw/demo-inveniordm/demo-inveniordm
-instance_path = 
-services_setup = True
-logfile = /Users/ppanero/Workspace/inveniosw/demo-inveniordm/demo-inveniordm/logs/invenio-cli.log
+logfile = /logs/invenio-cli.log
 
 [cookiecutter]
 project_name = InvenioRDM Demo Site
