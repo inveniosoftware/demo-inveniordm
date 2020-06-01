@@ -8,7 +8,6 @@ check-manifest = ">=0.25"
 
 [packages]
 invenio-app-rdm = {extras = ["postgresql", "elasticsearch7"],version = "~=0.9.3"}
-invenio-rdm-records = "~=0.13.1"
 uwsgi = ">=2.0"
 uwsgitop = ">=0.11"
 uwsgi-tools = ">=1.1.1"
