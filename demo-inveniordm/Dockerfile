@@ -23,7 +23,7 @@ FROM inveniosoftware/centos7-python:3.6
 ARG include_assets
 
 COPY Pipfile Pipfile.lock ./
-RUN pipenv install --deploy --system
+RUN pipenv install --deploy --system --pre
 
 COPY ./ .
 COPY ./docker/uwsgi/ ${INVENIO_INSTANCE_PATH}
