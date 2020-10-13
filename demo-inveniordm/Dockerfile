@@ -18,17 +18,18 @@
 # Note: It is important to keep the commands in this file in sync with your
 # bootstrap script located in ./scripts/bootstrap.
 
-FROM inveniosoftware/centos7-python:3.6
+FROM inveniosoftware/centos8-python:3.7
 
 ARG include_assets
 
 COPY Pipfile Pipfile.lock ./
 RUN pipenv install --deploy --system --pre
 
-COPY ./ .
 COPY ./docker/uwsgi/ ${INVENIO_INSTANCE_PATH}
 COPY ./invenio.cfg ${INVENIO_INSTANCE_PATH}
 COPY ./templates/ ${INVENIO_INSTANCE_PATH}/templates/
+COPY ./app_data/ ${INVENIO_INSTANCE_PATH}/app_data/
+COPY ./ .
 
 RUN if [ "$include_assets" = "true" ]; \
     then \
@@ -36,7 +37,6 @@ RUN if [ "$include_assets" = "true" ]; \
         cp -r ./assets/. ${INVENIO_INSTANCE_PATH}/assets/ && \
         invenio collect --verbose  && \
         invenio webpack create && \
-        # --unsafe needed because we are running as root
         invenio webpack install --unsafe && \
         invenio webpack build \
     ; fi

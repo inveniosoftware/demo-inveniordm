@@ -11,6 +11,7 @@ description = InvenioRDM Demo Instance
 author_name = CERN
 author_email = info@inveniosoftware.org
 year = 2020
+python_version = 3.7
 database = postgresql
 elasticsearch = 7
 file_storage = local
