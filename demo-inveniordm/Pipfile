@@ -7,14 +7,22 @@ verify_ssl = true
 check-manifest = ">=0.25"
 
 [packages]
-invenio-app-rdm = {extras = ["postgresql", "elasticsearch7"],version = "~=0.11.0"}
+flask-resources = "~=0.3.2"
+importlib-metadata = ">=0.12,<2.0.0"
+invenio = "~=3.4.0a8"
+invenio-app-rdm =  {extras = ["postgresql", "elasticsearch7"], version = "~=0.14.8"}
+invenio-drafts-resources = "~=0.4.3"
+invenio-rdm-records = "~=0.20.8"
+invenio-records-permissions = "~=0.10.0"
+invenio-records-resources = "~=0.6.6"
+marshmallow-utils = "~=0.2.1"
+nbconvert = {extras = ["execute"], version = ">=4.1.0,<6.0.0"}
 uwsgi = ">=2.0"
 uwsgitop = ">=0.11"
 uwsgi-tools = ">=1.1.1"
-marshmallow = ">=3.3.0,<4.0.0"
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
 
 [pipenv]
 allow_prereleases = true
