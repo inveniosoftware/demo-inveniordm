@@ -34,9 +34,10 @@ invenio roles create admin
 invenio access allow superuser-access role admin
 invenio index init --force
 
-# Add demo data
+# Add demo and fixtures data
 # -------------
 invenio rdm-records fixtures
+invenio rdm-records demo
 
 # Enable admin user
-invenio users active admin@inveniosoftware.org
+invenio users activate admin@inveniosoftware.org
