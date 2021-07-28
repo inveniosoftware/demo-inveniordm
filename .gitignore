@@ -130,3 +130,6 @@ dmypy.json
 
 # InvenioRDM
 *.invenio.private
+
+# IDE
+.idea/
