@@ -1,10 +1,11 @@
-affiliations:
-  pid-type: aff
-  schemes:
-    - id: ROR
-      name: Research Organization Registry
-      uri: "https://ror.org/"
-      data-file: vocabularies/affiliations_ror.yaml
+# Temporarily disabled due to deployment issues. Using default (RDM partners) subset
+# affiliations:
+#   pid-type: aff
+#   schemes:
+#     - id: ROR
+#       name: Research Organization Registry
+#       uri: "https://ror.org/"
+#       data-file: vocabularies/affiliations_ror.yaml
 subjects:
   pid-type: sub
   schemes:
