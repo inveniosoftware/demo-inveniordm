@@ -37,7 +37,8 @@ invenio index init --force
 # Add demo and fixtures data
 # -------------
 invenio rdm-records fixtures
-invenio rdm-records demo
+# cannot create records since fixtures are async and might not be present
+# invenio rdm-records demo
 
 # Enable admin user
 invenio users activate admin@inveniosoftware.org
