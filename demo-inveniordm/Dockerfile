@@ -18,7 +18,7 @@
 # Note: It is important to keep the commands in this file in sync with your
 # bootstrap script located in ./scripts/bootstrap.
 
-FROM inveniosoftware/centos8-python:3.7
+FROM inveniosoftware/centos8-python:3.8
 
 ARG include_assets
 
