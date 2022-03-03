@@ -104,7 +104,7 @@ services:
       file: docker-services.yml
       service: app
     restart: "always"
-    command: ["celery worker -A invenio_app.celery --loglevel=INFO"]
+    command: ["celery -A invenio_app.celery worker -c 2 -l INFO"]
     image: demo-inveniordm
     depends_on:
       es:
