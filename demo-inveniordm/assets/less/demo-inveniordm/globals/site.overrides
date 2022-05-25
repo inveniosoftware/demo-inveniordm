@@ -9,3 +9,7 @@
 .rdm-goal i,h3 {
     color: #0377cd;
 }
+
+.invenio-page-body {
+    padding-bottom: 0;
+}
