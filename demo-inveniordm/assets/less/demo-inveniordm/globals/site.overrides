@@ -10,6 +10,6 @@
     color: #0377cd;
 }
 
-.invenio-page-body {
-    padding-bottom: 0;
+.brought-to-you-section {
+    margin-bottom: -2em;
 }
