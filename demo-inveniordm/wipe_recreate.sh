@@ -38,6 +38,8 @@ invenio index init --force
 # -------------
 invenio rdm-records fixtures
 invenio rdm-records demo
+# Import awards vocabulary
+invenio vocabularies import --vocabulary awards --origin "app_data/vocabularies/awards_sample.tar"
 
 # Enable admin user
 invenio users activate admin@inveniosoftware.org
