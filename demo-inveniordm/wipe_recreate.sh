@@ -33,6 +33,8 @@ invenio files location create --default 'default-location' /opt/invenio/var/inst
 invenio roles create admin
 invenio access allow superuser-access role admin
 invenio index init --force
+invenio rdm-records custom-fields init
+invenio communities custom-fields init
 
 # Add demo and fixtures data
 # -------------
