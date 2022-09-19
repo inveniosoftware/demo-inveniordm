@@ -13,3 +13,9 @@ subjects:
       name: Fields of Science and Technology
       uri: "http://www.oecd.org/science/inno/38235147.pdf"
       data-file: vocabularies/subjects_oecd_fos.yaml
+programminglanguages:
+  pid-type: plang
+  data-file: vocabularies/programming_languages.yaml
+developmentstatus:
+  pid-type: dvstat
+  data-file: vocabularies/development_status.yaml
