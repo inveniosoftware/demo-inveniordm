@@ -1,0 +1,57 @@
+- id: ada
+  title:
+    en: Ada
+- id: basic
+  title:
+    en: Basic
+- id: bash
+  title:
+    en: Bash
+- id: c
+  title:
+    en: C
+- id: cobol
+  title:
+    en: Cobol
+- id: cplusplus
+  title:
+    en: C++
+- id: csharp
+  title:
+    en: C#
+- id: erlang
+  title:
+    en: Erlang
+- id: golang
+  title:
+    en: Golang (Go)
+- id: java
+  title:
+    en: Java
+- id: javascript
+  title:
+    en: JavaScript
+- id: lua
+  title:
+    en: Lua
+- id: pascal
+  title:
+    en: Pascal
+- id: php
+  title:
+    en: PHP
+- id: plsql
+  title:
+    en: PL/SQL
+- id: python
+  title:
+    en: Python
+- id: r
+  title:
+    en: R
+- id: rust
+  title:
+    en: Rust
+- id: swift
+  title:
+    en: Swift

@@ -1,0 +1,24 @@
+- id: concept
+  title:
+    en: Concept
+- id: wip
+  title:
+    en: Work In Progress (WIP)
+- id: suspended
+  title:
+    en: Suspended
+- id: abandoned
+  title:
+    en: Abandoned
+- id: active
+  title:
+    en: Active
+- id: inactive
+  title:
+    en: Inactive
+- id: unsupported
+  title:
+    en: Unsupported
+- id: moved
+  title:
+    en: Moved
