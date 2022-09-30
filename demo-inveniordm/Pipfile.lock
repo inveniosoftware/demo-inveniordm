@@ -863,11 +863,11 @@
                 "elasticsearch7"
             ],
             "hashes": [
-                "sha256:41d16929f1dd1b7c7f1aa3fd73425a730d2749d0aac428f7e25d1ec23929d416",
-                "sha256:616197e69218588d72625d2d8e47f81a12232300826af58c20589e919ccfb60b"
+                "sha256:21ea912e031f8cadec1cb8654b804fd386a35f12d0639e3b0da732df14a0357a",
+                "sha256:5e1a3679eebfd8e4a28d4ae69fa1b7793d50d808c4e0103bcdec64c5d0c549db"
             ],
             "index": "pypi",
-            "version": "==10.0.0.dev10"
+            "version": "==10.0.0.dev11"
         },
         "invenio-assets": {
             "hashes": [
