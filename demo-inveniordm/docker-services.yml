@@ -29,14 +29,6 @@ services:
       - "INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://demo-inveniordm:demo-inveniordm@db/demo-inveniordm"
       - "INVENIO_WSGI_PROXIES=2"
       - "INVENIO_RATELIMIT_STORAGE_URL=redis://cache:6379/3"
-  lb:
-    build: ./docker/haproxy/
-    image: demo-inveniordm-lb
-    restart: "unless-stopped"
-    ports:
-      - "80:80"
-      - "443:443"
-      - "8080:8080"
   frontend:
     build: ./docker/nginx/
     image: demo-inveniordm-frontend
@@ -45,7 +37,7 @@ services:
       - "80"
       - "443"
   cache:
-    image: redis
+    image: redis:7
     restart: "unless-stopped"
     read_only: true
     ports:
@@ -80,31 +72,23 @@ services:
     image: opensearchproject/opensearch:2.3.0
     restart: "unless-stopped"
     environment:
+      # settings only for development. DO NOT use in production!
       - bootstrap.memory_lock=true
       - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
-      - discovery.type=single-node
-      - plugins.security.disabled=true # NOTE: this shouldn't be used in production!
-      - "DISABLE_SECURITY_PLUGIN=true"
       - "DISABLE_INSTALL_DEMO_CONFIG=true"
-    healthcheck:
-      test:
-        [
-          "CMD",
-          "curl",
-          "-f",
-          "localhost:9200/_cluster/health?wait_for_status=green",
-        ]
-      interval: 30s
-      timeout: 30s
-      retries: 5
+      - "DISABLE_SECURITY_PLUGIN=true"
+      - "discovery.type=single-node"
     ulimits:
       memlock:
         soft: -1
         hard: -1
-    mem_limit: 1g
+      nofile:
+        soft: 65536
+        hard: 65536
+    mem_limit: 2g
     ports:
       - "9200:9200"
-      - "9300:9300"
+      - "9600:9600"
   opensearch-dashboards:
     image: opensearchproject/opensearch-dashboards:2.3.0
     ports:
@@ -112,10 +96,6 @@ services:
     expose:
       - "5601"
     environment:
-      - "OPENSEARCH_HOSTS=http://search:9200"
+      # settings only for development. DO NOT use in production!
+      - 'OPENSEARCH_HOSTS=["http://search:9200"]'
       - "DISABLE_SECURITY_DASHBOARDS_PLUGIN=true"
-  flower:
-    image: mher/flower
-    command: --broker=amqp://guest:guest@mq:5672/ --broker_api=http://guest:guest@mq:15672/api/
-    ports:
-      - "5555:5555"

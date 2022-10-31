@@ -75,15 +75,6 @@ services:
       - static_data:/opt/invenio/var/instance/static
       - uploaded_data:/opt/invenio/var/instance/data
       - archived_data:/opt/invenio/var/instance/archive
-    depends_on:
-      es:
-        condition: service_started
-      cache:
-        condition: service_started
-      db:
-        condition: service_started
-      mq:
-        condition: service_started
 
   # API Rest Application
   web-api:
@@ -97,25 +88,18 @@ services:
     volumes:
       - uploaded_data:/opt/invenio/var/instance/data
       - archived_data:/opt/invenio/var/instance/archive
-    depends_on:
-      es:
-        condition: service_started
-      cache:
-        condition: service_started
-      db:
-        condition: service_started
-      mq:
-        condition: service_started
+
   # Worker
   worker:
     extends:
       file: docker-services.yml
       service: app
-    restart: "always"
-    command: ["celery -A invenio_app.celery worker -c 2 -l INFO"]
-    image: demo-inveniordm
+    command: ["celery -A invenio_app.celery worker --loglevel=INFO"]
+    image: demo-inveniordm:latest
+    volumes:
+      - uploaded_data:/opt/invenio/var/instance/data
     depends_on:
-      es:
+      search:
         condition: service_started
       cache:
         condition: service_started
@@ -127,3 +111,4 @@ volumes:
   static_data:
   uploaded_data:
   archived_data:
+
