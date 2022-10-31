@@ -10,8 +10,7 @@
 
 {%- block page_body%}
 
-{%- block first_section %}
-
+{%- block intro_section %}
   <section class="invenio-rdm-project-section section-content white-bg">
     <h2 class="section-title">Sandbox deployment of InvenioRDM</h2>
     <div class="ui container two column grid center aligned vertically padded relaxed stackable">
@@ -48,9 +47,9 @@
     </div>
 
   </section>
-{%- endblock first_section %}
+{%- endblock intro_section %}
 
-{%- block second_section%}
+{%- block bottom_section %}
   <section class="brought-to-you-section section-content light-bg">
     <h2 class="section-title frontpage-title">{{ _("Brought to you by") }}</h2>
     <div class="ui container">
@@ -192,5 +191,5 @@
       </div>
     </div>
   </section>
-{%- endblock second_section%}
+{%- endblock bottom_section %}
 {%- endblock page_body%}
