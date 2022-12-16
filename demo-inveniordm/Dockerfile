@@ -2,7 +2,7 @@
 #
 # This file is part of Invenio.
 #
-# Copyright (C) 2019-2020 CERN.
+# Copyright (C) 2019-2022 CERN.
 # Copyright (C) 2019-2020 Northwestern University.
 #
 # Invenio is free software; you can redistribute it and/or modify it
@@ -29,6 +29,7 @@ COPY ./docker/uwsgi/ ${INVENIO_INSTANCE_PATH}
 COPY ./invenio.cfg ${INVENIO_INSTANCE_PATH}
 COPY ./templates/ ${INVENIO_INSTANCE_PATH}/templates/
 COPY ./app_data/ ${INVENIO_INSTANCE_PATH}/app_data/
+COPY ./translations ${INVENIO_INSTANCE_PATH}/translations
 COPY ./ .
 
 RUN if [ "$include_assets" = "true" ]; \
