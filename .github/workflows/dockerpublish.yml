@@ -51,8 +51,6 @@ jobs:
         with:
           context: ./demo-inveniordm/
           file: ./demo-inveniordm/Dockerfile
-          build-args: |
-            include_assets=true
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

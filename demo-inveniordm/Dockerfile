@@ -20,8 +20,6 @@
 
 FROM registry.cern.ch/inveniosoftware/almalinux:1
 
-ARG include_assets
-
 COPY Pipfile Pipfile.lock ./
 RUN pipenv install --deploy --system
 
@@ -29,15 +27,12 @@ COPY ./docker/uwsgi/ ${INVENIO_INSTANCE_PATH}
 COPY ./invenio.cfg ${INVENIO_INSTANCE_PATH}
 COPY ./templates/ ${INVENIO_INSTANCE_PATH}/templates/
 COPY ./app_data/ ${INVENIO_INSTANCE_PATH}/app_data/
-COPY ./translations ${INVENIO_INSTANCE_PATH}/translations
+COPY ./translations/ ${INVENIO_INSTANCE_PATH}/translations/
 COPY ./ .
 
-RUN if [ "$include_assets" = "true" ]; \
-    then \
-        cp -r ./static/. ${INVENIO_INSTANCE_PATH}/static/ && \
-        cp -r ./assets/. ${INVENIO_INSTANCE_PATH}/assets/ && \
-        invenio collect --verbose  && \
-        invenio webpack buildall \
-    ; fi
+RUN cp -r ./static/. ${INVENIO_INSTANCE_PATH}/static/ && \
+    cp -r ./assets/. ${INVENIO_INSTANCE_PATH}/assets/ && \
+    invenio collect --verbose  && \
+    invenio webpack buildall
 
 ENTRYPOINT [ "bash", "-c"]
