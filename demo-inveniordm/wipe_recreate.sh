@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # -*- coding: utf-8 -*-
 #
-# Copyright (C) 2020 CERN.
+# Copyright (C) 2020-2023 CERN.
 #
 # Demo-InvenioRDM is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
@@ -12,9 +12,15 @@ set -o errexit
 # Quit on unbound symbols
 set -o nounset
 
+# Prompt to confirm action
+read -r -p "Are you sure you want to wipe everything and create a new empty instance? [y/N] " response
+if [[ ! ("$response" =~ ^([yY][eE][sS]|[yY])$) ]]
+then
+    exit 0
+fi
+
 # Wipe
 # ----
-
 invenio shell --no-term-title -c "import redis; redis.StrictRedis.from_url(app.config['CACHE_REDIS_URL']).flushall(); print('Cache cleared')"
 # NOTE: db destroy is not needed since DB keeps being created
 #       Just need to drop all tables from it.
@@ -27,9 +33,7 @@ invenio index queue init purge
 # NOTE: db init is not needed since DB keeps being created
 #       Just need to create all tables from it.
 invenio db create
-# TODO: add back when pipenv access problem is fixed
-#invenio files location create --default 'default-location'  $(pipenv run invenio shell --no-term-title -c "print(app.instance_path)")'/data'
-invenio files location create --default 'default-location' /opt/invenio/var/instance/data
+invenio files location create --default 'default-location' $(invenio shell --no-term-title -c "print(app.instance_path)")'/data'
 invenio roles create admin
 invenio access allow superuser-access role admin
 invenio index init --force
