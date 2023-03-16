@@ -133,5 +133,4 @@ dmypy.json
 
 # IDE
 .idea/
-
-*.DS_Store
+**.DS_Store
