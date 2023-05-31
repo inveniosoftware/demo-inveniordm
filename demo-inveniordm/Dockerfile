@@ -46,7 +46,6 @@ RUN if [ ! -z "$xrootd_version" ] ; then XROOTD_V="-$xrootd_version" ; else XROO
     echo "Will install xrootd version: $XROOTD_V (latest if empty)" && \
     dnf install -y xrootd"$XROOTD_V" python3-xrootd"$XROOTD_V"
 
-COPY site ./site
 COPY Pipfile Pipfile.lock ./
 RUN pipenv install --deploy --system
 RUN pip install invenio-xrootd">=2.0.0a1"
