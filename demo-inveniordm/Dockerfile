@@ -62,5 +62,14 @@ RUN cp -r ./static/. ${INVENIO_INSTANCE_PATH}/static/ && \
     invenio collect --verbose && \
     invenio webpack buildall
 
+# application build args to be exposed as environment variables
+ARG IMAGE_BUILD_TIMESTAMP
+ARG SENTRY_RELEASE
+
+# Expose random sha to uniquely identify this build
+ENV INVENIO_IMAGE_BUILD_TIMESTAMP="'${IMAGE_BUILD_TIMESTAMP}'"
+ENV SENTRY_RELEASE=${SENTRY_RELEASE}
+
+RUN echo "Image build timestamp $INVENIO_IMAGE_BUILD_TIMESTAMP"
 
 ENTRYPOINT [ "bash", "-c"]
