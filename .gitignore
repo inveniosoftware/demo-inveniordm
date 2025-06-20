@@ -128,9 +128,14 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# InvenioRDM
-*.invenio.private
-
 # IDE
 .idea/
 **.DS_Store
+
+# InvenioRDM / Invenio-cli
+.invenio.private
+
+# Project specific
+test.db
+logs/
+

@@ -64,8 +64,6 @@ jobs:
       - name: Build and publish image
         uses: docker/build-push-action@v5
         with:
-          context: ./demo-inveniordm/
-          file: ./demo-inveniordm/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
