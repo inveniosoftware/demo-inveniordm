@@ -1,3 +1,6 @@
 - email: user@demo.org
-  active: False
-  password:
+  username: "demo"
+  full_name: "Demo User"
+  active: true
+  confirmed: true
+  password: "123456"
