@@ -23,7 +23,7 @@
 # - Message queue: RabbitMQ (exposed ports: 5672, 15672)
 # - OpenSearch (exposed ports: 9200, 9300)
 #
-version: '2.2'
+version: "2.2"
 services:
   cache:
     extends:
@@ -107,8 +107,23 @@ services:
         condition: service_started
       mq:
         condition: service_started
+
+  # Jobs scheduler
+  scheduler:
+    extends:
+      file: docker-services.yml
+      service: app
+    command:
+      [
+        "celery -A invenio_app.celery beat --scheduler invenio_jobs.services.scheduler:RunScheduler --loglevel=INFO",
+      ]
+    image: demo-inveniordm:latest
+    depends_on:
+      mq:
+        condition: service_started
+      db:
+        condition: service_started
 volumes:
   static_data:
   uploaded_data:
   archived_data:
-

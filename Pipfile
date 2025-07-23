@@ -7,8 +7,8 @@ verify_ssl = true
 check-manifest = ">=0.25"
 
 [packages]
-invenio-app-rdm = {extras = ["opensearch2"], version = "~=13.0.0rc2"}
-sentry-sdk = ">=1.45,<2.0.0"
+invenio-app-rdm = {extras = ["opensearch2"], version = "~=13.0.0"}
+sentry-sdk = {extras = ["flask"], version = ">=1.0.0,<2.0.0"}
 pyuwsgi = ">=2.0"
 uwsgitop = ">=0.11"
 uwsgi-tools = ">=1.1.1"
