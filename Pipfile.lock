@@ -414,11 +414,11 @@
         },
         "commonmeta-py": {
             "hashes": [
-                "sha256:4bbc018b54b454aa8c1b465d40c2fd618f4d991274918299b7da1b58f99a1559",
-                "sha256:a40d6dd3a5b4ddf45eb7a06f601cb46b7800d44d392792fc821a19ac96a7956a"
+                "sha256:bdadc8829bbe55cafe2647fe8a69f7e845775f1243b6054e551001af0e5bc102",
+                "sha256:f1c3e0f06269c5175a18705c2b790a513c4efd5997789a4e1afe27543c314650"
             ],
             "markers": "python_version >= '3.9' and python_version < '4.0'",
-            "version": "==0.143"
+            "version": "==0.144"
         },
         "counter-robots": {
             "hashes": [
@@ -481,11 +481,11 @@
         },
         "datacite": {
             "hashes": [
-                "sha256:09582a13f44a9d93da94d5b444beff60a3379a3c82261da0dd18c8b8af38a4cf",
-                "sha256:91d831ce211ff8840b9780da48742f70b5e49c897c1534ff55d5f35a37f9e2c5"
+                "sha256:6514d6c87493e040d46d55113776410a142e6eec9c8ebe9e89513d0ed084fb94",
+                "sha256:9117a4906748b90a3e437f3f9e1f330ddd273f13e3c69e56cafdf2d59b9030fe"
             ],
             "markers": "python_version >= '3.9'",
-            "version": "==1.3.0"
+            "version": "==1.3.1"
         },
         "dateparser": {
             "hashes": [
